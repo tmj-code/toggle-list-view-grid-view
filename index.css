@@ -1,0 +1,61 @@
+#gridOrList + label {
+    display: inline-block;
+}
+#gridOrList + label::before,
+#gridOrList + label::after {
+    display: inline-block;
+    width: 2em;
+    height: 2em;
+    border: 1px solid #000;
+    background: #ddd;
+    cursor: pointer;
+}
+#gridOrList + label::before {
+    content: url("data:image/svg+xml,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 9v2h2v-2zM7 15v2h2v-2zM7 21v2h2v-2zM12 9v2h12v-2zM12 15v2h12v-2zM12 21v2h12v-2z'/%3E%3C/svg%3E");
+}
+#gridOrList + label::after {
+    content: url("data:image/svg+xml,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 7v7h7v-7z M17 7v7h7v-7zM7 17v7h7v-7zM17 17v7h7v-7z'/%3E%3C/svg%3E");
+}
+#gridOrList:not(:checked) + label::before,
+#gridOrList:checked + label::after {
+    background: #fff;
+}
+ul {
+    padding: 0;
+    display: flex;
+}
+li {
+    list-style: none;
+}
+#gridOrList:not(:checked) ~ ul {
+    flex-flow: column;
+}
+#gridOrList:not(:checked) ~ ul li {
+    padding: 0.5em 0;
+    border-top: 1px solid #000;
+    width: 100%;
+}
+#gridOrList:not(:checked) ~ ul li:last-child {
+    border-bottom: 1px solid #000;
+}
+#gridOrList:not(:checked) ~ ul h2,
+#gridOrList:not(:checked) ~ ul p {
+    display: inline-block;
+    font-size: 1em;
+    margin: 0 1em 0 0;
+}
+#gridOrList:not(:checked) ~ ul p:last-child {
+    float: right;
+}
+#gridOrList:checked ~ ul {
+    flex-flow: row wrap;
+    gap: 1em;
+}
+#gridOrList:checked ~ ul li {
+    flex: 0 0 16em;
+    padding: 1em;
+    box-shadow: 0.5em 0.5em 0.5em #bbb;
+}
+#gridOrList:checked ~ ul p {
+    margin: 0;
+}
